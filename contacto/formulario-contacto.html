@@ -1,0 +1,153 @@
+<section class="categoria-menu">
+  <div class="container">
+    <h3>Formulario de Contacto</h3>
+    <div class="interior">
+					<form name="formulario" id="formulario" action="" method="post">
+						<header>
+							<br />
+							<h1>CONTACTO</h1>
+							<div id="campos_obligatorios">
+								(*) Campos obligatorios.
+							</div>
+						</header>
+
+						<div id="contenedor_RUT">
+							<label id="Rut">
+								Rut&nbsp;<span className="asterisco">*</span>
+							</label>
+							<div className="div_oculto">
+								<input id="contact_rut" name="rut" type="text" spellCheck="false" maxLength="12" tabIndex="1" placeholder="Ejemplo: 12098371-8" />
+								<span id="contact-rut-error" className="error">Rut inválido</span>
+							</div>
+						</div>
+
+						<div id="contenedor_nombre">
+							<label id="nombre">
+								Nombre&nbsp;<span className="asterisco">*</span>
+							</label>
+							<div id="celda_nombre">
+								<input id="contact_firstName" name="firstName" type="text" className="field text fn" maxLength="40" size="8" tabIndex="3" />
+								<span id="contact-first-name-error" className="error">Ingresa tu nombre</span>
+							</div>
+						</div>
+						<div id="contenedor_paterno">
+							<label id="paterno">Apellido Paterno &nbsp;<span className="asterisco">*</span></label>
+							<div id="celda_paterno">
+								<input id="contact_lastName" name="lastName" type="text" spellCheck="false" maxLength="40" tabIndex="4" />
+								<span id="contact-last-name-error" className="error">Ingresa tu apellido</span>
+							</div>
+						</div>
+						<div id="contenedor_materno">
+							<label id="title3">Apellido Materno</label>
+							<div>
+								<input id="contact_middleName" name="middleName" type="text" spellCheck="false" maxLength="40" placeholder="Opcional" tabIndex="5" />
+								<span id="contact-middle-name-error" className="error">Apellido materno inválido</span>
+							</div>
+						</div>
+						<div id="contenedor_email">
+							<label id="title5">Email&nbsp;<span className="asterisco">*</span></label>
+							<div>
+								<input id="contact_emailId" name="emailId" type="text" spellCheck="false" maxLength="50" tabIndex="6" />
+								<span id="contact-email-error" className="error">Email no válido</span>
+							</div>
+						</div>
+
+						<div id="contenedor_phone">
+							<label id="title6">Teléfono/Celular&nbsp;<span className="asterisco">*</span></label>
+							<div id="celda_telefono">
+				 			 <div>
+							    <label><input name="phoneRadio" type="radio" value="land" checked={this.state.phone === "land"} onChange={this.showLandOrCellphoneNumberBox} /> Fijo</label>&nbsp;
+							    &nbsp;&nbsp;&nbsp;<label><input name="phoneRadio" type="radio" value="cell" checked={this.state.phone === "cell"} onChange={this.showLandOrCellphoneNumberBox} /> Celular</label>
+							 </div>
+							</div>
+						</div>
+
+						<div id="contenedor_phonedetails">
+						<label id="title7">Teléfono&nbsp;<span className="asterisco">*</span></label>
+							<div id="contact-land-phone" className="land box">
+						    <div>
+						    	<label id="fijo"></label>
+									<div className="div_oculto">
+										<input name="phoneNumber" tabIndex="7" id="phoneNumber" onKeyPress={this.isValidPhoneEnteredContact} spellCheck="false" type="text" minLength="8" maxLength="11" placeholder="Ejemplo: 2 - 25555555" />
+										<span id="contact-phone-number-error" className="error">Teléfono no válido</span>
+									</div>
+								</div>
+						  </div>
+						  <div id="contact-cell-phone" className="cell box">
+						  	<div>
+						  		<label id="celular"></label>
+									<div className="div_oculto">
+										<input name="cellPhoneNumber" tabIndex="7" id="cellPhoneNumber" spellCheck="false" type="text" minLength="9" maxLength="10" onKeyPress={this.isValidPhoneEnteredContact} placeholder="Ejemplo: 9 - 12345678" /></div>
+										<span id="contact-cell-phone-number-error" className="error">Teléfono no válido</span>
+					    		</div>
+						 		</div>
+					    </div>
+
+						<div id="contenedor_reason">
+								<label id="tipo">Asunto&nbsp;<span className="asterisco">*</span></label>
+								    <div id="tiposec" className="flt_left tiposec">
+									<span>
+										<select id="contact_reason" name="reason" className="field select medium" tabIndex="9">
+											<option value="Seleccione">Seleccione</option>
+											<option value="CONSULTAS">Consultas</option>
+											<option value="SOLICITUDES">Solicitudes</option>
+											<option value="RECLAMOS">Reclamos</option>
+											<option value="FELICITACIONES">Felicitaciones</option>
+										</select>
+										<span id="contact-contact-reason-error" className="error">Selecciona una opción</span>
+									</span>
+								 	</div>
+								</div>
+									<div id="contenedor_subreason">
+									<label id="sub_tipo">Detalle&nbsp;<span className="asterisco">*</span></label>
+									<div id="subtiposec" className="flt_left subtiposec">
+									<span>
+										<select id="contact_subreason" name="subreason" className="field select medium" tabIndex="9">
+											<option value="Seleccione">Seleccione</option>
+											<option value="CAMBIO">Cambio</option>
+											<option value="DEVOLUCION">Devolución</option>
+											<option value="DESPACHO">Despacho</option>
+											<option value="GARANTIA">Garantía</option>
+										</select>
+										<span id="contact-contact-subreason-error" className="error">Selecciona una opción</span>
+									</span>
+								</div>
+								</div>
+
+						<div id="contenedor_message">
+							<label id="title9">Mensaje&nbsp;<span className="asterisco">*</span></label>
+							<div>
+								<textarea name="mensaje" tabIndex="11" id="contact_mensaje" rows="10" cols="50" maxLength="2000" onKeyUp={this.characterCount} placeholder="Escribe tu mensaje"></textarea>
+								<div id="contador"><p className="indicador">Tienes 2000 caracteres restantes</p></div>
+								<span id="contact-mensaje-error" className="error">Ingresa un mensaje</span>
+							</div>
+						</div>
+						<input type="hidden" id="contactUsFormFields" name="contactUsFormFields" value="rut,passport,firstName,lastName,middleName,rutNumber,emailId,phoneNumber,reason,subreason,tienda,mensaje" />
+						<div id="contenedor_submit">
+							<div>
+								<div id="saveForm2" tabIndex="10" onClick={this.send}>Enviar</div>
+							</div>
+						</div>
+					</form>
+
+					<div id="contactResponse" tabIndex="11">
+						<div className="cerrar" id="contenedor_cerrar">
+							Cerrar&nbsp;
+							<a href="#" onClick={this.hideContactusModal}>
+								<img src={close_icon} />
+							</a>
+						</div>
+						<br />
+						<h1>Estimado Cliente, </h1>
+						<p>Hemos recibido tu requerimiento y nos contactaremos contigo a la brevedad.</p>
+						<p id="responseTrackNumber">El número asignado a esta solicitud es el &nbsp;
+						<span className="codigo"></span>.
+						</p>
+						<br />
+						<p>Saludos cordiales</p>
+						<div id="cerrar_abajo" onClick={this.hideContactusModal}>Cerrar</div>
+					</div>
+  </div>
+</section>
+
+<!-- {breadcrumbs: [{title: "Contacto", url: "contacto"},{title: "Formulario de Contacto", url: "contacto/formulario-contacto"}]} -->
